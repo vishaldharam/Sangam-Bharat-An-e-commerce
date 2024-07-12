@@ -1,0 +1,24 @@
+import mongoose from "mongoose";
+
+const paymentSchema = new mongoose.Schema({
+  razorpay_order_id: {
+    type: String,
+    required: true,
+  },
+  razorpay_payment_id: {
+    type: String,
+    required: true,
+  },
+  razorpay_signature: {
+    type: String,
+    required: true,
+  },
+  products: {
+    type: Object,
+    required:true
+  }
+});
+
+// export const Payment = mongoose.model("Payment", paymentSchema);
+
+module.exports = mongoose.models.Payment || mongoose.model('Payment', paymentSchema)
